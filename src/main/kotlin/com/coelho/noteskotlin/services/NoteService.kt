@@ -8,9 +8,9 @@ interface NoteService {
 
     fun findAll(): List<Note>
 
-    fun create(scenario: Note): Note
+    fun create(note: Note): Note
 
-    fun update(scenario: Note): Note
+    fun update(note: Note): Note
 
     fun delete(id: Long)
 }
