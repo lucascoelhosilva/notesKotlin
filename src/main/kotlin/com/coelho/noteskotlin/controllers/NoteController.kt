@@ -1,7 +1,7 @@
 package com.coelho.noteskotlin.controllers
 
 import com.coelho.noteskotlin.models.Note
-import com.coelho.noteskotlin.services.NoteService
+import com.coelho.noteskotlin.services.impl.NoteService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
