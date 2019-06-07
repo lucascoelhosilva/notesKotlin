@@ -4,6 +4,7 @@ import com.coelho.noteskotlin.models.Note
 import com.coelho.noteskotlin.repositories.NoteRepository
 import com.coelho.noteskotlin.services.NoteService
 import org.springframework.stereotype.Service
+import java.util.*
 
 @Service
 class NoteServiceImpl(
@@ -11,24 +12,24 @@ class NoteServiceImpl(
 ) : NoteService {
 
     override fun findAll(): List<Note> {
-        return noteRepository.listAll()
+        return noteRepository.findAll()
     }
 
-    override fun findById(id: Long): Note {
-        return noteRepository.findById(id = id)!!
+    override fun findById(id: Long): Optional<Note> {
+        return noteRepository.findById(id)
     }
 
     override fun create(note: Note): Note {
-        noteRepository.persist(note)
+        noteRepository.saveAndFlush(note)
         return  note
     }
 
     override fun update(note: Note): Note {
-        noteRepository.persist(note)
+        noteRepository.saveAndFlush(note)
         return note
     }
 
     override fun delete(id: Long) {
-        noteRepository.delete(id)
+        noteRepository.deleteById(id)
     }
 }
